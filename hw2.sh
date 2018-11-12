@@ -1,0 +1,1 @@
+ls -RAl | sort -k 5 -rn | awk 'BEGIN{SUM = 0; DIR = 0; FILE = 0;} {if($1 ~ /^d/){DIR++;} else if($1 ~ /^-/){FILE++; SUM += $5; if(NR <= 5) printf NR ":" $9"\n";}} END{printf "Dir num:%d\n", DIR; printf "File num:%d\n", FILE;printf "Total:%d\n", SUM;}'
